@@ -35,8 +35,7 @@ public:
 		// 
 		//this->adresa = _adresa;
 
-		this->adresa = new char[strlen(_adresa) + 1];
-		strcpy_s(this->adresa, strlen(_adresa) + 1, _adresa);
+		this->setAdress(_adresa);
 
 		this->set_note(_note, _numar_materii);
 		//this->note = new int[_numar_materii];
@@ -45,6 +44,16 @@ public:
 		//	this->note[index] = _note[index];
 		//}
 
+	}
+
+	Student(Student &stud) {
+		this->setName(stud.nume);
+		this->setAdress(stud.adresa);
+		this->setVarsta(stud.varsta);
+		this->setAnStudii(stud.an_studii);
+		this->set_note(stud.note, stud.numar_materii);
+		this->set_numar_matricol(stud.numar_matricol);
+		this->set_finantare(stud.finantare);
 	}
 
 	// Implementarea constructorului de copiere va rezolva problema care genereaza exceptiile lansate la executia destructorului - incercarea de a 
@@ -130,8 +139,6 @@ private:
 	string numar_matricol;
 	finantare finantare;
 	int numar_materii;
-
-
 };
 
 
@@ -163,9 +170,8 @@ int main()
 	// discutie eroare invalid heap pointer
 	int note[10] = { 9,10,10,10,8,9,7,10,5,10 };
 	s0.set_note(note, 10);
-
-
-	Student s1 = Student("Popescu I", (char*)"Bucuresti, Sector 1", 21, 2, note, 10, "A689867", finantare::BUGET_BURSA);
+	
+	//Student s1 = Student("Popescu I", (char*)"Bucuresti, Sector 1", 21, 2, note, 10, "A689867", finantare::BUGET_BURSA);
 
 	//Student s2 = s1;
 	//s2.nume = "Ionescu C";
