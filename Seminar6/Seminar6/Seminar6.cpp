@@ -262,4 +262,5 @@ int main()
 	Book b1 = b0;
 
 	cout << b1.getAuthor();
+	delete[] array;
 }
